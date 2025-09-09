@@ -1,161 +1,110 @@
-import React, { useState } from 'react'
-import '../CSS/home.css';
-import { FaSearch, FaShoppingBag, FaHome, FaShoppingCart, FaUser } from 'react-icons/fa';
-import products from '../data/Kiranaproducts';
-import { useCart } from '../components/CartContext';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import products from "../data/Kiranaproducts";
+import { useCart } from "../components/CartContext";
+import Header from "../components/Header";
+import SearchBar from "../components/SearchBar";
+import SearchOverlay from "../components/Searchoverlay";
+import "../CSS/Homee.css";
+import { FaShoppingCart, FaHeart } from "react-icons/fa";
+import BottomNav from "../components/Bottomnav";
+import Hero from "../components/Hero";
 
 const Home = () => {
-    const [search, setSearch] = useState('');
-    const { cart, addToCart } = useCart();
-    const navigate = useNavigate();
+  const [search, setSearch] = useState("");
+  const [showSearchOverlay, setShowSearchOverlay] = useState(false);
+  const [hideHeader, setHideHeader] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-    // Filter products by search
-    const filteredProducts = products.filter(p =>
-        p.name.toLowerCase().includes(search.toLowerCase())
-    );
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
 
-    const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
+  // 👇 Smooth scroll detect
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
 
-    return (
-        <div className="app-container">
-            <header className="header">
-                <h1 className="logo">QuickBazaar</h1>
-                <div className="cart-icon-container" onClick={() => navigate('/cart')}>
-                    <FaShoppingBag className="cart-icon" />
-                    {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
-                </div>
-            </header>
+      if (currentScroll > lastScrollY && currentScroll > 80) {
+        setHideHeader(true); // hide header on scroll down
+      } else {
+        setHideHeader(false); // show header on scroll up
+      }
 
-            {/* Sticky Search Bar */}
-            <div className="sticky-search-container">
-                <div className="search-bar-container">
-                    <FaSearch className="search-icon" />
-                    <input
-                        type="text"
-                        placeholder="Search for groceries..."
-                        className="search-input"
-                        value={search}
-                        onChange={e => setSearch(e.target.value)}
-                    />
-                </div>
-            </div>
+      setLastScrollY(currentScroll);
+    };
 
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
-            <section className="categories-section">
-                <h2 className="section-title">Categories</h2>
-                <div className="categories-grid">
-                    <div className="category-item">
-                        <div className="category-icon-container"><img src="/Images/ashirvad.webp" className='category-icon' alt="" /></div>
-                        <p>Atta, Dal & Rice</p>
-                    </div>
-                    <div className="category-item">
-                        <div className="category-icon-container"><img src="/Images/moongdal.webp" className='category-icon' alt="" /></div>
-                        <p>Masala & Oil</p>
-                    </div>
-                    <div className="category-item">
-                        <div className="category-icon-container"><img src="/Images/breadchakote.jpg" className='category-icon' alt="" /></div>
-                        <p>Dairy, Bread & Eggs</p>
-                    </div>
-                    <div className="category-item">
-                        <div className="category-icon-container"><img src="/Images/ashirvad.webp" className='category-icon' alt="" /></div>
-                        <p>Snacks & Munchies</p>
-                    </div>
-                    <div className="category-item">
-                        <div className="category-icon-container"><img src="/Images/ashirvad.webp" className='category-icon' alt="" /></div>
-                        <p>Meat</p>
-                    </div>
-                    <div className="category-item">
-                        <div className="category-icon-container"><img src="/Images/ashirvad.webp" className='category-icon' alt="" /></div>
-                        <p>Meat</p>
-                    </div>
-                    <div className="category-item">
-                        <div className="category-icon-container">{/* Meat icon */}</div>
-                        <p>Meat</p>
-                    </div>
-                    {/* Add more categories here */}
-                </div>
-            </section>
+  const filteredProducts = products.filter((p) =>
+    p.name.toLowerCase().includes(search.toLowerCase())
+  );
 
-            {/* <section className="popular-products-section">
-                <h2 className="section-title">Popular Products</h2>
-                <div className="products-grid">
-                    {filteredProducts.length === 0 && (
-                        <p className="no-products">No products found.</p>
-                    )}
-                    {filteredProducts.map(product => (
-                        <div className="product-card" key={product.id}>
-                            <div className="product-image-container">
-                                <img
-                                    src={product.image}
-                                    alt={product.name}
-                                    className="product-image"
-                                    loading="lazy"
-                                />
-                            </div>
-                            <h3 className="product-name">{product.name}</h3>
-                            <p className="product-price">₹{product.price}</p>
-                            <button className="add-button" onClick={() => addToCart(product)}>
-                                <FaShoppingCart /> Add
-                            </button>
-                        </div>
-                    ))}
-                </div>
-            </section> */}
-            <section className="popular-products-section">
-                <h2 className="section-title">Popular Products</h2>
-                <div className="products-grid">
-                    {filteredProducts.length === 0 && (
-                        <p className="no-products">No products found.</p>
-                    )}
-                    {filteredProducts.map(product => (
-                        <div
-                            className="product-card"
-                            key={product.id}
-                            onClick={() => navigate(`/item/${product.id}`)}
-                            style={{ cursor: 'pointer' }}
-                        >
-                            <div className="product-image-container">
-                                <img
-                                    src={product.image}
-                                    alt={product.name}
-                                    className="product-image"
-                                    loading="lazy"
-                                />
-                            </div>
-                            <h3 className="product-name">{product.name}</h3>
-                            <p className="product-price">₹{product.price}</p>
-                            <button
-                                className="add-button"
-                                onClick={e => {
-                                    e.stopPropagation();
-                                    addToCart(product);
-                                }}
-                            >
-                                <FaShoppingCart /> Add
-                            </button>
-                        </div>
-                    ))}
-                </div>
-            </section>
+  return (
+    <div className="home-container">
+      <Header isHidden={hideHeader} />
+      <SearchBar
+        setShowSearchOverlay={setShowSearchOverlay}
+        search={search}
+      />
 
-            <nav className="bottom-nav-bar">
-                <div className="nav-item active">
-                    <FaHome />
-                    <p>Home</p>
-                </div>
-                <div className="nav-item" onClick={() => navigate('/cart')}>
-                    <FaShoppingCart />
-                    <p>Cart</p>
-                    {cartCount > 0 && <span className="nav-badge">{cartCount}</span>}
-                </div>
-                <div className="nav-item" onClick={() => navigate('/orders')}>
-                    <FaUser />
-                    <p>Orders</p>
-                </div>
-            </nav>
+      <Hero />
+
+      {/* Featured Products */}
+      <section>
+        <div className="section-title see-all">
+          <span>Featured Products</span>
+          <span className="see-all-link">See All</span>
         </div>
-    )
-}
+        <div className="featured-products-grid">
+          {filteredProducts.slice(0, 8).map((product) => (
+            <div className="featured-card-outer" key={product.id}>
+              <div
+                className="featured-card-inner"
+                onClick={() => navigate(`/item/${product.id}`)}
+              >
+                <div className="featured-img-wrap">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="featured-img"
+                  />
+                  <FaHeart className="featured-heart" />
+                </div>
+                <div className="featured-info">
+                  <div className="featured-title">{product.name}</div>
+                  <div className="featured-price">₹{product.price}</div>
+                </div>
+              </div>
+              <button
+                className="add-button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  addToCart(product);
+                }}
+              >
+                <FaShoppingCart /> Add
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
 
-export default Home
+      {showSearchOverlay && (
+        <SearchOverlay
+          search={search}
+          setSearch={setSearch}
+          filteredProducts={filteredProducts}
+          setShowSearchOverlay={setShowSearchOverlay}
+          navigate={navigate}
+          addToCart={addToCart}
+        />
+      )}
+
+      <BottomNav />
+    </div>
+  );
+};
+
+export default Home;
