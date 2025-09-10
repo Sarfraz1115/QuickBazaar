@@ -8,8 +8,13 @@ const Cart = () => {
     const { cart, updateQty, removeFromCart } = useCart();
     const navigate = useNavigate();
 
+    // Subtotal calculation
     const subtotal = cart.reduce(
-        (sum, item) => sum + (item.customPrice || item.price) * (item.calcQty || 1),
+        (sum, item) =>
+            sum +
+            (item.customPrice
+                ? item.customPrice
+                : item.price * (typeof item.qty === "number" ? item.qty : 1)),
         0
     );
     const delivery = cart.length > 0 ? 5 : 0;
@@ -33,13 +38,14 @@ const Cart = () => {
                             <img src={item.image} alt={item.name} className="cart-item-img" />
                             <div className="cart-item-info">
                                 <h4>{item.name}</h4>
-                                <p className="item-price">₹{item.customPrice ? item.customPrice.toFixed(2) : item.price}</p>
-                                {/* Show custom quantity if available */}
-                                {typeof item.qty === "string" ? (
-                                    <p className="item-qty">Qty: {item.displayQty}</p> 
-                                ) : (
-                                    <p className="item-qty">Qty: {item.displayQty}</p> 
-                                )}
+                                <p className="item-price">
+                                    ₹{item.customPrice
+                                        ? item.customPrice.toFixed(2)
+                                        : (item.price * (typeof item.qty === "number" ? item.qty : 1)).toFixed(2)}
+                                </p>
+                                <p className="item-qty">
+                                    Qty: {typeof item.qty === "string" ? item.qty : item.qty}
+                                </p>
                                 {item.note && <p className="item-note">Note: {item.note}</p>}
                             </div>
                             {typeof item.qty === "number" ? (
@@ -69,7 +75,6 @@ const Cart = () => {
                     <div className="summary-row">
                         <span>Subtotal</span>
                         <span>₹{subtotal.toFixed(2)}</span>
-                        
                     </div>
                     <div className="summary-row">
                         <span>Delivery</span>

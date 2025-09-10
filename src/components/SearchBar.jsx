@@ -1,6 +1,7 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
-import "../CSS/Homee.css";
+// import "../CSS/Homee.css";
+import "../CSS/search.css";
 
 const SearchBar = ({ setShowSearchOverlay, search }) => {
   return (

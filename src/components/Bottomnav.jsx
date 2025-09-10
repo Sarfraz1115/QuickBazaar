@@ -2,7 +2,7 @@ import React from "react";
 import { FaHome, FaShoppingCart, FaListAlt } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useCart } from "./CartContext";
-import "../CSS/Homee.css";
+import "../CSS/bottom.css";
 
 const BottomNav = () => {
   const navigate = useNavigate();

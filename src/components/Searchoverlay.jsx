@@ -1,8 +1,7 @@
 // src/components/SearchOverlay.jsx
 import React from "react";
 import { FaArrowLeft } from "react-icons/fa";
-// import "../CSS/home.css";
-import "../CSS/Homee.css"
+import "../CSS/overlay.css";
 
 const SearchOverlay = ({
   search,

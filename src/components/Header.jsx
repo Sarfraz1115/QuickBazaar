@@ -1,7 +1,8 @@
 // header.jsx
 import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
-import "../CSS/Homee.css";
+// import "../CSS/Homee.css";
+import "../CSS/header.css";
 import { useCart } from "./CartContext";
 import { useNavigate } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";

@@ -1,0 +1,41 @@
+/* ========== SEARCH BAR ========== */
+.sticky-search-container {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: #fff;
+  /* padding: 8px 12px; */
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  /* background: #f3f3f3; */
+  background: white;
+  padding: 0.5rem 0.8rem;
+  border-radius: 25px;
+  transition: box-shadow 0.2s ease;
+  border: 1px solid greenyellow;
+}
+
+.search-bar-container:focus-within {
+  box-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
+}
+
+.search-icon {
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  color: rgba(34, 197, 94, 0.5);
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  font-size: 0.95rem;
+  color: white;
+  padding: 7px;
+}
