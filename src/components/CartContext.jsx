@@ -22,6 +22,7 @@ export const CartProvider = ({ children }) => {
 
 
   // Add item to cart
+  // Add item to cart
   const addToCart = (product) => {
     setCart((prev) => {
       const found = prev.find((item) => item.id === product.id);
@@ -46,19 +47,20 @@ export const CartProvider = ({ children }) => {
   };
 
 
-//   const addToCart = (product) => {
-//   setCart((prev) => {
-//     const found = prev.find((item) => item.id === product.id);
-//     if (found) {
-//       return prev.map((item) =>
-//         item.id === product.id
-//           ? { ...item, calcQty: item.calcQty + product.calcQty }
-//           : item
-//       );
-//     }
-//     return [...prev, product];
-//   });
-// };
+
+  //   const addToCart = (product) => {
+  //   setCart((prev) => {
+  //     const found = prev.find((item) => item.id === product.id);
+  //     if (found) {
+  //       return prev.map((item) =>
+  //         item.id === product.id
+  //           ? { ...item, calcQty: item.calcQty + product.calcQty }
+  //           : item
+  //       );
+  //     }
+  //     return [...prev, product];
+  //   });
+  // };
 
 
 
