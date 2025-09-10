@@ -7,18 +7,61 @@ export const useCart = () => useContext(CartContext);
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
+  // // Add item to cart
+  // const addToCart = (product) => {
+  //   setCart((prev) => {
+  //     const found = prev.find((item) => item.id === product.id);
+  //     if (found) {
+  //       return prev.map((item) =>
+  //         item.id === product.id ? { ...item, qty: item.qty + 1 } : item
+  //       );
+  //     }
+  //     return [...prev, { ...product, qty: 1, note: product.note }];
+  //   });
+  // };
+
+
   // Add item to cart
   const addToCart = (product) => {
     setCart((prev) => {
       const found = prev.find((item) => item.id === product.id);
+
+      // Agar customQty hai (jaise "250 gm", "1 kg", "10 pcs")
+      if (typeof product.qty === "string") {
+        // Har ek custom quantity ko alag entry treat karo
+        return [...prev, { ...product, note: product.note }];
+      }
+
+      // Normal numeric quantity ka case
       if (found) {
         return prev.map((item) =>
-          item.id === product.id ? { ...item, qty: item.qty + 1 } : item
+          item.id === product.id
+            ? { ...item, qty: item.qty + product.qty } // add karte waqt jo diya hai wo add hoga
+            : item
         );
       }
-      return [...prev, { ...product, qty: 1, note: product.note }];
+
+      return [...prev, { ...product, qty: product.qty, note: product.note }];
     });
   };
+
+
+//   const addToCart = (product) => {
+//   setCart((prev) => {
+//     const found = prev.find((item) => item.id === product.id);
+//     if (found) {
+//       return prev.map((item) =>
+//         item.id === product.id
+//           ? { ...item, calcQty: item.calcQty + product.calcQty }
+//           : item
+//       );
+//     }
+//     return [...prev, product];
+//   });
+// };
+
+
+
 
   // Update quantity
   const updateQty = (id, qty) => {

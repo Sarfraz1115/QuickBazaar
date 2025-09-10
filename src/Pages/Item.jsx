@@ -20,9 +20,33 @@ const Item = () => {
     return <div className="not-found">Product not found.</div>;
   }
 
+
+
+
+  // const handleAddToCart = () => {
+  //   const qtyValue = customQty ? Number(customQty) : Number(quantity);
+  //   const finalQty = customQty ? `${qtyValue} ${unit}` : qtyValue;
+
+  //   if (isNaN(qtyValue) || qtyValue <= 0) return;
+
+  //   let calculatedPrice = product.price;
+
+  //   if (customQty) {
+  //     const basePricePerGram = product.price / 1000;
+  //     if (unit === 'gm') {
+  //       calculatedPrice = basePricePerGram * qtyValue;
+  //     } else if (unit === 'kg') {
+  //       calculatedPrice = product.price * qtyValue;
+  //     }
+  //   }
+
+  //   addToCart({ ...product, qty: finalQty, customPrice: calculatedPrice, note: customNote });
+  //   navigate('/cart');
+  // };
+
   const handleAddToCart = () => {
     const qtyValue = customQty ? Number(customQty) : Number(quantity);
-    const finalQty = customQty ? `${qtyValue} ${unit}` : qtyValue;
+    const finalQty = customQty ? `${qtyValue} ${unit}` : `${qtyValue}`;
 
     if (isNaN(qtyValue) || qtyValue <= 0) return;
 
@@ -34,12 +58,25 @@ const Item = () => {
         calculatedPrice = basePricePerGram * qtyValue;
       } else if (unit === 'kg') {
         calculatedPrice = product.price * qtyValue;
+      } else if (unit === 'pcs') {
+        calculatedPrice = product.price * qtyValue; // assume per piece price
       }
     }
 
-    addToCart({ ...product, qty: finalQty, customPrice: calculatedPrice, note: customNote });
+    addToCart({
+      ...product,
+      displayQty: finalQty,   // 👈 string for showing
+      calcQty: qtyValue,      // 👈 pure number for calculation
+      customPrice: calculatedPrice,
+      note: customNote
+    });
+
     navigate('/cart');
   };
+
+
+
+
 
   const incrementQuantity = () => {
     setQuantity(prevQty => prevQty + 1);
@@ -112,7 +149,7 @@ const Item = () => {
             className="custom-note-textarea"
           />
         </div>
-        
+
         {/* Related Products Section */}
         <div className="related-products-section">
           <h3>Related Products</h3>

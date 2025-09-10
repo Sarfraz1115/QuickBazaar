@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+// Checkout.jsx
+import React, { useState, useEffect } from 'react';
 import { useCart } from '../components/CartContext';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
-// import '../CSS/cart.css'; // Reuse existing cart styles
-import '../CSS/checkout.css'; // New styles for checkout page
+import '../CSS/checkout.css';
 
 const Checkout = () => {
   const { cart } = useCart();
@@ -13,23 +13,43 @@ const Checkout = () => {
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
 
-  const subtotal = cart.reduce((sum, item) => (item.customPrice || item.price) * (typeof item.qty === "number" ? item.qty : 1) + sum, 0);
+  // ✅ Load saved user info on mount
+  useEffect(() => {
+    const savedUser = JSON.parse(localStorage.getItem("userInfo"));
+    if (savedUser) {
+      setName(savedUser.name || "");
+      setPhone(savedUser.phone || "");
+      setAddress(savedUser.address || "");
+    }
+  }, []);
+
+
+  const subtotal = cart.reduce((sum, item) => {
+    return sum + (item.customPrice || item.price) * (typeof item.qty === "number" ? item.qty : 1);
+  }, 0);
+
+
+
   const delivery = cart.length > 0 ? 5 : 0;
   const total = subtotal + delivery;
 
   const handlePlaceOrder = (e) => {
-  e.preventDefault();
-  const order = {
-    items: cart,
-    name,
-    phone,
-    address,
-    subtotal,
-    delivery,
-    total
+    e.preventDefault();
+
+    const userInfo = { name, phone, address };
+    // ✅ Save info for future use
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+
+    const order = {
+      items: cart,
+      ...userInfo,
+      subtotal,
+      delivery,
+      total,
+    };
+
+    navigate('/confirm', { state: order });
   };
-  navigate('/confirm', { state: order });
-};
 
   return (
     <div className="checkout-page">
@@ -44,13 +64,12 @@ const Checkout = () => {
         {/* Order Summary */}
         <h3 className="section-heading">Order Summary</h3>
         <div className="summary-box">
-          {cart.map(item => (
+          {cart.map((item) => (
             <div key={item.id} className="summary-item">
               <div>
                 <div className="item-name">{item.name}</div>
-                <div className="item-details">
-                  Qty: {item.qty} {typeof item.qty === "string" ? "" : ""}
-                </div>
+                {/* <div className="item-details">Qty: {item.qty}</div> */}
+                <div className="item-details">Qty: {item.displayQty}</div>
                 {item.note && <div className="item-note">Note: {item.note}</div>}
               </div>
               <div className="item-price">
@@ -71,7 +90,7 @@ const Checkout = () => {
             type="text"
             placeholder="Enter your name"
             value={name}
-            onChange={e => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
             required
             className="form-input"
           />
@@ -79,14 +98,14 @@ const Checkout = () => {
             type="tel"
             placeholder="Enter your phone number"
             value={phone}
-            onChange={e => setPhone(e.target.value)}
+            onChange={(e) => setPhone(e.target.value)}
             required
             className="form-input"
           />
           <textarea
             placeholder="Enter your delivery address"
             value={address}
-            onChange={e => setAddress(e.target.value)}
+            onChange={(e) => setAddress(e.target.value)}
             required
             className="form-textarea"
           />
@@ -108,10 +127,7 @@ const Checkout = () => {
             </div>
           </div>
 
-          <button
-            type="submit"
-            className="place-order-button"
-          >
+          <button type="submit" className="place-order-button">
             Place Order
           </button>
         </form>

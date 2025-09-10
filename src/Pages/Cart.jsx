@@ -8,8 +8,10 @@ const Cart = () => {
     const { cart, updateQty, removeFromCart } = useCart();
     const navigate = useNavigate();
 
-
-    const subtotal = cart.reduce((sum, item) => sum + (item.customPrice || item.price) * item.qty, 0);
+    const subtotal = cart.reduce(
+        (sum, item) => sum + (item.customPrice || item.price) * (item.calcQty || 1),
+        0
+    );
     const delivery = cart.length > 0 ? 5 : 0;
     const total = subtotal + delivery;
 
@@ -34,20 +36,12 @@ const Cart = () => {
                                 <p className="item-price">₹{item.customPrice ? item.customPrice.toFixed(2) : item.price}</p>
                                 {/* Show custom quantity if available */}
                                 {typeof item.qty === "string" ? (
-                                    <p className="item-qty">Qty: {item.qty}</p>
+                                    <p className="item-qty">Qty: {item.displayQty}</p> 
                                 ) : (
-                                    <p className="item-qty">Qty: {item.qty}</p>
+                                    <p className="item-qty">Qty: {item.displayQty}</p> 
                                 )}
                                 {item.note && <p className="item-note">Note: {item.note}</p>}
                             </div>
-                            {/* <div className="qty-controls">
-                                <button onClick={() => updateQty(item.id, item.qty - 1)}>-</button>
-                                <span>{item.qty}</span>
-                                <button onClick={() => updateQty(item.id, item.qty + 1)}>+</button>
-                            </div> */}
-
-
-                            {/* Only show quantity controls if qty is a number */}
                             {typeof item.qty === "number" ? (
                                 <div className="qty-controls">
                                     <button onClick={() => updateQty(item.id, item.qty - 1)}>-</button>
@@ -59,10 +53,6 @@ const Cart = () => {
                                     <span>{item.qty}</span>
                                 </div>
                             )}
-
-
-
-
                             <button
                                 className="remove-btn"
                                 onClick={() => removeFromCart(item.id)}
@@ -79,6 +69,7 @@ const Cart = () => {
                     <div className="summary-row">
                         <span>Subtotal</span>
                         <span>₹{subtotal.toFixed(2)}</span>
+                        
                     </div>
                     <div className="summary-row">
                         <span>Delivery</span>

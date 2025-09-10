@@ -1,4 +1,3 @@
-// src/components/Hero.jsx
 import React, { useState, useEffect, useRef } from "react";
 import "../CSS/hero.css";
 
@@ -14,6 +13,12 @@ const heroBanners = [
     title: "Best Deals",
     subtitle: "Save more on essentials",
     button: "See Offers",
+  },
+  {
+    image: "/Images/tatasalt.jpg",
+    title: "Daily Essentials",
+    subtitle: "Everything you need, daily",
+    button: "Order Today",
   },
   {
     image: "/Images/tatasalt.jpg",
@@ -42,6 +47,29 @@ const Hero = () => {
     }, 4000);
     return () => clearInterval(interval);
   }, [heroIndex]);
+
+  // 👇 Handle manual scroll (user swipe)
+  useEffect(() => {
+    const handleScroll = () => {
+      if (heroRef.current) {
+        const width = heroRef.current.clientWidth;
+        const scrollLeft = heroRef.current.scrollLeft;
+        const newIndex = Math.round(scrollLeft / width);
+        setHeroIndex(newIndex);
+      }
+    };
+
+    const slider = heroRef.current;
+    if (slider) {
+      slider.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      if (slider) {
+        slider.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, []);
 
   return (
     <div className="hero-wrapper">

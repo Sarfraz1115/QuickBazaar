@@ -9,7 +9,7 @@ body, .app-container {
   font-family: 'Inter', sans-serif;
   background: #f9f9f9;
   color: #222;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 /* ========== HEADER ========== */
@@ -424,6 +424,15 @@ body, .app-container {
   padding: 2px 6px;
   border-radius: 50%;
   line-height: 1;
+}
+
+
+.home-container {
+  width: 100%;
+  min-height: 100vh; /* allow full height */
+  padding-bottom: 70px; /* for bottom nav */
+  overflow-x: hidden;
+  overflow-y: auto; /* ensure vertical scroll works */
 }
 
 
