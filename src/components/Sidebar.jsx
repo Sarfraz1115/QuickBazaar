@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../CSS/Sidebar.css";
+import "../CSS/sidebar.css";
 import { FaBox, FaUser, FaHeart, FaBell, FaQuestionCircle, FaCog } from "react-icons/fa";
 
 const Sidebar = ({ isOpen, onClose }) => {
