@@ -1,6 +1,9 @@
 export async function sendOrderToTelegram(order) {
-    const token = "8454746317:AAEEPtMr8p6jrOwuT6V3zPJVtdLnzMnzS3s"; // <-- yahan apna bot token daalein
-    const chatId = "-1002785236558"; // <-- yahan apna chat id daalein
+    // const token = "8454746317:AAEEPtMr8p6jrOwuT6V3zPJVtdLnzMnzS3s"; // <-- yahan apna bot token daalein
+    // const chatId = "-1002785236558"; // <-- yahan apna chat id daalein
+
+    const token = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+    const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
 
     //   const itemsText = order.items
     //     .map(item => `- ${item.name} (${typeof item.qty === "number" ? item.qty : item.qty || 1})`)
