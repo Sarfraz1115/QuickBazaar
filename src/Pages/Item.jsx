@@ -106,10 +106,10 @@ const Item = () => {
           <h2 className="item-name">{product.name}</h2>
           <p className="item-price">₹{product.price}</p>
         </div>
-        <p className="item-description">
+        {/* <p className="item-description">
           Creamy, nutrient-rich avocados, perfect for salads, toast, or guacamole. Grown
           without synthetic pesticides or fertilizers.
-        </p>
+        </p> */}
 
         <div className="quantity-controls">
           <button onClick={decrementQuantity} className="qty-btn"><FaMinus /></button>

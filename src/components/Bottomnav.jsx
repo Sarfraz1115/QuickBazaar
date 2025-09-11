@@ -9,7 +9,11 @@ const BottomNav = () => {
   const location = useLocation();
   const { cart } = useCart();
   
-  const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
+  // const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
+  const cartCount = cart.reduce(
+  (sum, item) => sum + (typeof item.qty === "number" ? item.qty : 1),
+  0
+);
   return (
     <nav className="bottom-nav">
       <button

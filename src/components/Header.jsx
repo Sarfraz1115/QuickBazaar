@@ -11,7 +11,11 @@ import Sidebar from "./Sidebar";  // Sidebar import karo
 const Header = ({ isHidden }) => {
   const navigate = useNavigate();
   const { cart } = useCart();
-  const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
+  // const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
+  const cartCount = cart.reduce(
+  (sum, item) => sum + (typeof item.qty === "number" ? item.qty : 1),
+  0
+);
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 

@@ -1,22 +1,23 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../CSS/hero.css";
+import { useNavigate } from "react-router-dom";
 
 const heroBanners = [
   {
-    image: "/Images/ashirvad.webp",
-    title: "Fresh Groceries",
+    image: "/attadal.png",
+    title: "Kirana",
     subtitle: "Delivered to your door",
     button: "Shop Now",
   },
   {
     image: "/Images/toordal.jpg",
-    title: "Best Deals",
+    title: "FastFoods",
     subtitle: "Save more on essentials",
     button: "See Offers",
   },
   {
     image: "/Images/tatasalt.jpg",
-    title: "Daily Essentials",
+    title: "Dairy and Drinks",
     subtitle: "Everything you need, daily",
     button: "Order Today",
   },
@@ -31,6 +32,7 @@ const heroBanners = [
 const Hero = () => {
   const [heroIndex, setHeroIndex] = useState(0);
   const heroRef = useRef(null);
+  const navigate = useNavigate();
 
   // Auto-scroll logic
   useEffect(() => {
@@ -72,7 +74,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="hero-wrapper">
+    <div className="hero-wrapper" onClick={() => navigate('/category/kirana')}>
       <div className="hero-carousel" ref={heroRef}>
         {heroBanners.map((banner, idx) => (
           <div className="hero-card" key={idx}>

@@ -4,6 +4,7 @@ import "../CSS/confirmpage.css";
 import { useCart } from "../components/CartContext";
 import { saveOrder } from "../Utils/db" 
 import { saveOrderToSheet } from "../Utils/googleSheet";
+import { sendOrderToTelegram } from "../Utils/telegram";
 
 const Confirm = () => {
   const navigate = useNavigate();
@@ -33,6 +34,9 @@ const Confirm = () => {
         saveOrderToSheet(finalOrder)
         .then(() => console.log("Order saved in Google Sheets"))
         .catch((err) => console.error("Failed to save order to Google Sheets:", err));
+
+        // Send to Telegram
+        sendOrderToTelegram(finalOrder);
     };
 
 
