@@ -9,6 +9,7 @@ import "../CSS/Homee.css";
 import { FaShoppingCart, FaHeart } from "react-icons/fa";
 import BottomNav from "../components/Bottomnav";
 import Hero from "../components/Hero";
+import ShopCategories from "../components/Associated";
 
 const Home = () => {
   const [search, setSearch] = useState("");
@@ -50,6 +51,7 @@ const Home = () => {
       />
 
       <Hero />
+      <ShopCategories/>
 
       {/* Featured Products */}
       <section>
@@ -57,38 +59,6 @@ const Home = () => {
           <span>Featured Products</span>
           <span className="see-all-link">See All</span>
         </div>
-        {/* <div className="featured-products-grid">
-          {filteredProducts.slice(0, 8).map((product) => (
-            <div className="featured-card-outer" key={product.id}>
-              <div
-                className="featured-card-inner"
-                onClick={() => navigate(`/item/${product.id}`)}
-              >
-                <div className="featured-img-wrap">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="featured-img"
-                  />
-                  <FaHeart className="featured-heart" />
-                </div>
-                <div className="featured-info">
-                  <div className="featured-title">{product.name}</div>
-                  <div className="featured-price">₹{product.price}</div>
-                </div>
-              </div>
-              <button
-                className="add-button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  addToCart(product);
-                }}
-              >
-                <FaShoppingCart /> Add
-              </button>
-            </div>
-          ))}
-        </div> */}
         <div className="featured-products-grid">
           {filteredProducts.map((product) => (
             <div className="featured-card-outer" key={product.id}>

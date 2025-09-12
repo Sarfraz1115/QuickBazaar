@@ -12,24 +12,27 @@ export async function sendOrderToTelegram(order) {
     //     .map(item => `- ${item.name} (Qty: ${typeof item.qty === "string" ? item.qty : item.qty})`)
     //     .join('\n');
 
-    const itemsText = order.items
-        .map(item => `- ${item.name} (Qty: ${typeof item.qty === "string" ? item.qty : item.qty})`)
+      // ✅ Naye logic mein, hum sidhe `item.qty` use kar sakte hain
+      const itemsText = order.items
+        .map(item => `- ${item.name} (Qty: ${item.displayQty || item.qty})`)
         .join('\n');
 
     const text = `
-🛒 *New Order Received!*
-Order ID: #${order.orderId}
-Name: ${order.name}
-Phone: ${order.phone}
-Address: ${order.address}
+🛒 *Naya Order Aaya!*
+---
+*Order ID:* #${order.orderId}
+*Customer Name:* ${order.name}
+*Phone:* ${order.phone}
+*Address:* ${order.address}
 
 *Items:*
 ${itemsText}
 
-Subtotal: ₹${order.subtotal}
-Delivery: ₹${order.delivery}
-Total: ₹${order.total}
-  `;
+*Subtotal:* ₹${order.subtotal.toFixed(2)}
+*Delivery:* ₹${order.delivery.toFixed(2)}
+*Total:* ₹${order.total.toFixed(2)}
+`;
+
 
     try {
         await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
