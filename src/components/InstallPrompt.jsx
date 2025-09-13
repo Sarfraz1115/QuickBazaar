@@ -54,12 +54,14 @@ const styles = {
     position: "fixed",
     top: 0,
     left: 0,
+    right: 0,
+    bottom: 0,
     width: "100%",
     height: "100%",
     background: "rgba(0,0,0,0.5)",
     display: "flex",
-    alignItems: "center",
     justifyContent: "center",
+    alignItems: "center",
     zIndex: 2000,
   },
   modal: {
@@ -70,6 +72,9 @@ const styles = {
     width: "80%",
     maxWidth: "350px",
     boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
+    
+
+
   },
   buttons: {
     marginTop: "15px",

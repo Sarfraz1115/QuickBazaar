@@ -7,8 +7,8 @@ const shops = [
   { id: 2, name: "Bombaywala Foods", img: "/Logo.png", link: "#" },
   { id: 3, name: "Kailash Sweets", img: "/Logo.png", link: "#" },
   { id: 4, name: "Gujrat Sweet Home", img: "/Logo.png", link: "#" },
-  { id: 4, name: "Farm Fresh", img: "/Logo.png", link: "#" },
-  { id: 4, name: "Farm Fresh", img: "/Logo.png", link: "#" },
+  // { id: 4, name: "Farm Fresh", img: "/Logo.png", link: "#" },
+  // { id: 4, name: "Farm Fresh", img: "/Logo.png", link: "#" },
 ];
 
 const Associated = () => {
