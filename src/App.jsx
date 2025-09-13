@@ -5,6 +5,7 @@ import Cart from "./Pages/Cart"
 import Checkout from "./Pages/Checkout"
 import Confirm from "./Pages/Confirm"
 import Orders from "./Pages/Orders"
+import InstallPrompt from "./components/InstallPrompt"
 
 
 
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <InstallPrompt/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/item/:id" element={<Item />} />
