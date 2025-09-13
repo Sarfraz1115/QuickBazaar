@@ -8,7 +8,7 @@ const InstallPrompt = () => {
     const handler = (e) => {
       e.preventDefault();
       setDeferredPrompt(e);
-      setShowPrompt(true); // show popup when event fires
+      setShowPrompt(true); // ✅ show popup in center
     };
     window.addEventListener("beforeinstallprompt", handler);
 
@@ -27,40 +27,71 @@ const InstallPrompt = () => {
     setShowPrompt(false);
   };
 
+  const handleClose = () => setShowPrompt(false);
+
   if (!showPrompt) return null;
 
   return (
-    <div style={styles.popup}>
-      <p>Install the QuickKirana App for better experience</p>
-      <button onClick={handleInstall} style={styles.button}>
-        Install
-      </button>
+    <div style={styles.overlay}>
+      <div style={styles.modal}>
+        <h3>Install QuickKirana</h3>
+        <p>Get the app for a faster and better experience.</p>
+        <div style={styles.buttons}>
+          <button onClick={handleInstall} style={styles.installBtn}>
+            Install
+          </button>
+          <button onClick={handleClose} style={styles.cancelBtn}>
+            Not Now
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
 
 const styles = {
-  popup: {
+  overlay: {
     position: "fixed",
-    bottom: "20px",
-    left: "50%",
-    transform: "translateX(-50%)",
-    background: "#fff",
-    border: "1px solid #ccc",
-    padding: "10px 20px",
-    borderRadius: "10px",
-    boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
-    zIndex: 1000
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    background: "rgba(0,0,0,0.5)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 2000,
   },
-  button: {
-    marginLeft: "10px",
+  modal: {
+    background: "#fff",
+    padding: "20px",
+    borderRadius: "12px",
+    textAlign: "center",
+    width: "80%",
+    maxWidth: "350px",
+    boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
+  },
+  buttons: {
+    marginTop: "15px",
+    display: "flex",
+    justifyContent: "space-around",
+  },
+  installBtn: {
     background: "#2e7d32",
     color: "#fff",
     border: "none",
-    padding: "6px 12px",
-    borderRadius: "6px",
-    cursor: "pointer"
-  }
+    padding: "8px 16px",
+    borderRadius: "8px",
+    cursor: "pointer",
+    fontWeight: "bold",
+  },
+  cancelBtn: {
+    background: "#ddd",
+    border: "none",
+    padding: "8px 16px",
+    borderRadius: "8px",
+    cursor: "pointer",
+  },
 };
 
 export default InstallPrompt;
