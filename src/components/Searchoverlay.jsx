@@ -1,7 +1,8 @@
 // src/components/SearchOverlay.jsx
-import React from "react";
+import React, { useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import "../CSS/overlay.css";
+import AddToCartToast from "./AddToCartToast"; // ✅ import
 
 const SearchOverlay = ({
   search,
@@ -11,6 +12,13 @@ const SearchOverlay = ({
   navigate,
   addToCart,
 }) => {
+  const [toast, setToast] = useState({ show: false, name: "" });
+
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    setToast({ show: true, name: product.name });
+  };
+
   return (
     <div className="search-overlay">
       <div className="overlay-header">
@@ -52,7 +60,7 @@ const SearchOverlay = ({
                 className="overlay-add-btn"
                 onClick={(e) => {
                   e.stopPropagation();
-                  addToCart(product);
+                  handleAddToCart(product); // ✅ toast + cart
                 }}
               >
                 + Add
@@ -63,6 +71,13 @@ const SearchOverlay = ({
           <p className="overlay-empty">No results found</p>
         )}
       </div>
+
+      {/* ✅ Toast Component */}
+      <AddToCartToast
+        show={toast.show}
+        itemName={toast.name}
+        onClose={() => setToast({ show: false, name: "" })}
+      />
     </div>
   );
 };

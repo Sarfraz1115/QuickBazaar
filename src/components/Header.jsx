@@ -1,34 +1,45 @@
-// header.jsx
 import React, { useState } from "react";
-import { FaBars } from "react-icons/fa";
-// import "../CSS/Homee.css";
+import { FaUserCircle, FaShoppingCart } from "react-icons/fa";
 import "../CSS/header.css";
 import { useCart } from "./CartContext";
 import { useNavigate } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
-import Sidebar from "./Sidebar";  // Sidebar import karo
+import Sidebar from "./Sidebar";
 
 const Header = ({ isHidden }) => {
   const navigate = useNavigate();
   const { cart } = useCart();
-  // const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
+
+  // ✅ Cart count logic same rakha
   const cartCount = cart.reduce(
-  (sum, item) => sum + (typeof item.qty === "number" ? item.qty : 1),
-  0
-);
+    (sum, item) => sum + (typeof item.qty === "number" ? item.qty : 1),
+    0
+  );
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <>
       <header className={`header ${isHidden ? "hide" : ""}`}>
-        <FaBars className="menu-icon" onClick={() => setSidebarOpen(true)} />
-        <h1 className="logo">QuickKirana</h1>
-        <div className="right-icons">
-          <div className="bell-icon-container" onClick={() => navigate("/cart")}>
-            <FaShoppingCart className="bell-icon" />
+        {/* Left side → Delivery time + App name */}
+        <div className="header-left">
+          <h2 className="delivery-time">Delivery in 40 mins</h2>
+          <p className="app-name">QuickKirana</p>
+        </div>
+
+        {/* Right side → Cart + Profile */}
+        <div className="header-right">
+          {/* <div
+            className="cart-icon-container"
+            onClick={() => navigate("/cart")}
+          >
+            <FaShoppingCart className="cart-icon" />
             {cartCount > 0 && <span className="notif-badge">{cartCount}</span>}
-          </div>
+          </div> */}
+
+          <FaUserCircle
+            className="profile-icon"
+            onClick={() => setSidebarOpen(true)}
+          />
         </div>
       </header>
 

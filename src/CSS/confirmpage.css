@@ -57,13 +57,16 @@
 }
 
 .view-orders-button {
-  width: 100%;
+  display: block;
+  /* width: 100%; */
   background: #f3f4f6;
+  margin: 10px auto;
   color: #222;
   border: none;
   padding: 12px 0;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
+  text-decoration: none;
   cursor: pointer;
 }

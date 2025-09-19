@@ -1,41 +1,61 @@
-/* ========== SEARCH BAR ========== */
+/* Search container sticky just like header */
 .sticky-search-container {
   position: sticky;
-  top: 0;
-  z-index: 90;
+  top: 0; /* 👈 header ki jagah replace kare */
   background: #fff;
-  /* padding: 8px 12px; */
-  padding: 10px;
-  transition: all 0.3s ease;
+  z-index: 95; /* header ke thoda neeche */
+  padding: 8px 12px;
+  transition: all 0.3s ease-in-out;
 }
 
 .search-bar-container {
   display: flex;
   align-items: center;
-  /* background: #f3f3f3; */
-  background: white;
-  padding: 0.5rem 0.8rem;
-  border-radius: 25px;
-  transition: box-shadow 0.2s ease;
-  border: 1px solid greenyellow;
-}
-
-.search-bar-container:focus-within {
-  box-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
+  background: #f3f3f3;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
 }
 
 .search-icon {
+  color: #666;
+  margin-right: 10px;
   font-size: 1rem;
-  margin-right: 0.5rem;
-  color: rgba(34, 197, 94, 0.5);
 }
 
-.search-input {
-  border: none;
-  outline: none;
-  background: transparent;
-  flex: 1;
+/* Animated text container */
+.search-animated-text {
   font-size: 0.95rem;
-  color: white;
-  padding: 7px;
+  color: #666;
+  overflow: hidden;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Smooth cycle animation */
+.slide-cycle {
+  display: inline-block;
+  animation: slideUpFade 3s ease-in-out forwards;
+}
+
+/* 3s = 0.5s slide-in + 2s visible + 0.5s slide-out */
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  85% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
 }

@@ -1,4 +1,4 @@
-/* Overlay */
+/* ===== Overlay ===== */
 .overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -13,7 +13,7 @@
   visibility: visible;
 }
 
-/* Sidebar */
+/* ===== Sidebar ===== */
 .sidebar {
   position: fixed;
   top: 0; right: -280px;
@@ -41,7 +41,7 @@
   cursor: pointer;
 }
 
-/* User Profile */
+/* ===== User Profile ===== */
 .user-profile {
   display: flex;
   align-items: center;
@@ -72,7 +72,7 @@
   color: #666;
 }
 
-/* Menu Section */
+/* ===== Menu Section ===== */
 .menu-section {
   flex: 1;
 }
@@ -93,14 +93,9 @@
   gap: 10px;
   padding: 10px 0;
   font-size: 0.95rem;
-  color: #333;
-  cursor: pointer;
-}
-.menu-section ul li:hover {
-  color: #22c55e;
 }
 
-/* Bottom Section */
+/* ===== Bottom Section ===== */
 .bottom-section {
   border-top: 1px solid #eee;
   padding-top: 15px;
@@ -116,9 +111,24 @@
   gap: 10px;
   padding: 10px 0;
   font-size: 0.95rem;
-  color: #333;
-  cursor: pointer;
 }
-.bottom-section ul li:hover {
+
+/* ===== Links Styling ===== */
+.menu-link {
+  text-decoration: none;
+  color: #333;  /* normal state */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* visited state bhi black hi */
+.menu-link:visited {
+  color: #333 !important;
+}
+
+/* hover pe green */
+.menu-link:hover {
   color: #22c55e;
 }

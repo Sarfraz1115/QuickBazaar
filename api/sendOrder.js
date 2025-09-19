@@ -24,6 +24,8 @@ export default async function handler(req, res) {
 
     const text = `
 🛒 *Naya Order Aaya!*
+---
+*Order ID:* #${order.orderId}
 *Customer:* ${order.name}
 *Phone:* ${order.phone}
 *Address:* ${order.address}

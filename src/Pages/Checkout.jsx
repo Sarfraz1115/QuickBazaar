@@ -69,11 +69,11 @@ const Checkout = () => {
               <div>
                 <div className="item-name">{item.name}</div>
                 {/* <div className="item-details">Qty: {item.qty}</div> */}
-                <div className="item-details">Qty: {item.displayQty}</div>
+                <div className="item-details">Qty: {item.qty}</div>
                 {item.note && <div className="item-note">Note: {item.note}</div>}
               </div>
               <div className="item-price">
-                ₹{(item.customPrice ? item.customPrice : item.price).toFixed(2)}
+                ₹{((item.customPrice ? item.customPrice : item.price) * item.qty).toFixed(2)}
               </div>
             </div>
           ))}
