@@ -11,6 +11,7 @@ import Hero from "../components/Hero";
 import ShopCategories from "../components/Associated";
 import Categories from "../components/Categories";
 import AddToCartToast from "../components/AddToCartToast"; // ✅ import
+import CategoriesWithImages from "../components/Categories";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -68,7 +69,8 @@ const Home = () => {
 
       <Hero />
       <ShopCategories />
-      <Categories />
+      {/* <Categories /> */}
+      <CategoriesWithImages/>
 
       <section>
         <div className="section-title see-all">

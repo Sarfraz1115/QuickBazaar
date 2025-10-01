@@ -4,7 +4,8 @@
 
 .categories-list {
     display: flex;
-    overflow-x: scroll; /* Add padding for scrollbar and side spacing */
+    overflow-x: scroll;
+    /* Add padding for scrollbar and side spacing */
     -webkit-overflow-scrolling: touch;
 }
 
@@ -12,40 +13,47 @@
 .categories-list::-webkit-scrollbar {
     display: none;
 }
+
 .category-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .category-header h3 {
-  font-size: 18px;
-  font-weight: bold;
-  margin-left: 9px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 9px;
 }
 
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .categories-list {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .category-item {
     flex-shrink: 0;
-    width: 120px; /* Fixed width for each card */
+    width: 120px;
+    /* Fixed width for each card */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .category-image-container {
-    width: 70%;
-    height: 146px; /* Make the container a fixed height for consistency */
-    background-color: #f7f7f7;
+    display: flex;
+    width: 87%;
+    justify-content: center;
+    height: 146px;
+    /* background-color: #f7f7f7; */
     border-radius: 16px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 .category-image {
@@ -53,7 +61,8 @@
     height: 80%;
     margin-top: 10px;
     object-fit: cover; /* This will make sure the image covers the container */
-    object-position: center; /* Center the image within the container */
+    object-position: center;
+    /* Center the image within the container */
 }
 
 .category-name {

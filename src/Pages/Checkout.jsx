@@ -36,6 +36,12 @@ const Checkout = () => {
   const handlePlaceOrder = (e) => {
     e.preventDefault();
 
+    // ✅ Phone validation
+    if (!/^\d{10}$/.test(phone)) {
+      alert("Phone number must be exactly 10 digits");
+      return;
+    }
+
     const userInfo = { name, phone, address };
     // ✅ Save info for future use
     localStorage.setItem("userInfo", JSON.stringify(userInfo));
@@ -101,6 +107,8 @@ const Checkout = () => {
             onChange={(e) => setPhone(e.target.value)}
             required
             className="form-input"
+            pattern="[0-9]{10}" // ✅ sirf 10 digit allow karega
+            title="Phone number must be 10 digits"
           />
           <textarea
             placeholder="Enter your delivery address"

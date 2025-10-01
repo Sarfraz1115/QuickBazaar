@@ -6,9 +6,8 @@ import Checkout from "./Pages/Checkout"
 import Confirm from "./Pages/Confirm"
 import Orders from "./Pages/Orders"
 import InstallPrompt from "./components/InstallPrompt"
-
-
-
+import UpdateToast from "./components/UpdateToast"
+import Attadal from "./Pages/CategoryPages/Attadalrice"
 
 function App() {
 
@@ -16,6 +15,7 @@ function App() {
   return (
     <BrowserRouter>
     <InstallPrompt/>
+    <UpdateToast/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/item/:id" element={<Item />} />
@@ -23,6 +23,7 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/confirm" element={<Confirm />} />
         <Route path="/orders" element={<Orders />} />
+        <Route path="/category/:categoryKey" element={<Attadal/>}/>
       </Routes>
     </BrowserRouter>
   )
