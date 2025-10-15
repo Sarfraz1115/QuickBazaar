@@ -79,7 +79,6 @@
     line-height: 1.2; 
     white-space: normal; /* Allow text to wrap to 2 lines */
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Maximum 2 lines */
     -webkit-box-orient: vertical;
     overflow: hidden;
     height: 2.4em; /* Approx height for 2 lines */

@@ -1,6 +1,6 @@
 import React from "react";
 import { useRegisterSW } from "virtual:pwa-register/react";
-import "../CSS/updatetoast.css";
+import "../CSS/updateToast.css";
 
 const intervalMS = 60 * 60 * 1000; // 1 ghante me update check
 const isDev = import.meta.env.DEV;
