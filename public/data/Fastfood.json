@@ -1,0 +1,27 @@
+{
+    "Burger": [
+        {"id": 1,"name": "aloo tikki burger","price": 50,"image": "/Images/alooburger.jpg","category": "Burger","shop": "Bombaywala Foods"},
+        {"id": 2,"name": "chicken burger","price": 80,"image": "/Images/chickenburger.jpg","category": "Burger","shop": "Fast food point"}
+    ],
+
+    
+    "Pizza": [
+        {"id": 3,"name": "veg pizza","price": 150,"image": "/Images/vegpizza.jpg","category": "Pizza", "shop": "Fast food point"
+        },
+        {"id": 4,"name": "chicken pizza","price": 250,"image": "/Images/chickenpizza.jpg","category": "Pizza","shop": "Fast food point"
+        }
+    ],
+
+
+    "Fries": [
+        {"id": 5,"name": "french fries","price": 70,"image": "/Images/frenchfries.jpg","category": "Fries","shop": "Fast food point"}
+    ],
+
+
+
+    "Milkshake": [
+        {"id": 6,"name": "chocolate milkshake","price": 90,"image": "/Images/chocolatemilkshake.jpg","category": "Milkshake","shop": "Fast food point"},
+        {"id": 7,"name": "vanilla milkshake","price": 90,"image": "/Images/vanillamilkshake.jpg","category": "Milkshake","shop": "Fast food point"},
+        {"id": 8,"name": "strawberry milkshake","price": 100,"image": "/Images/strawberrymilkshake.jpg","category": "Milkshake","shop": "Fast food point"}
+    ]
+}

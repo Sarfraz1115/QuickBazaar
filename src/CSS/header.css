@@ -1,19 +1,32 @@
 /* ========== HEADER ========== */
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.6rem 1rem;
+ position: fixed;      /* sticky ki jagah fixed */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1200; 
   background: #fff;
   border-bottom: 1px solid #eee;
   position: sticky;
-  top: 0;
-  z-index: 100;
   transition: transform 0.3s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.headsearch{
+  padding: 8px;
+}
+
+.search{
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
 }
 
 .header.hide {
   transform: translateY(-100%);
+  
 }
 
 /* Left Section */
@@ -40,6 +53,7 @@
 .header-right {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 15px;
 }
 

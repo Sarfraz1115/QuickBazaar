@@ -1,25 +1,51 @@
+// src/components/Categories.jsx (Update this file)
+
 import { useNavigate } from "react-router-dom";
-import AttaDal from "/attadal.png";
-import Masala from "/masala.png";
-import Cleaning from "/cleaning.png";
-import Munchies from "/munchies.png";
-import Dairy from "/Dairy.png";
 import "../CSS/categories.css";
+// Data Configuration import
+import { TOP_CATEGORIES } from "../Utils/DataConfig"; 
+// Dummy images (aapko apne paths set karne honge)
+import AttaDal from "/attadal.png"; 
+import Masala from "/masala.png";
+import FastFood from "/munchies.png";
+import cleaning from "/cleaning.png";
+import sweets from "/sweets.jpg";
+import oilghee from "/oilghee.png"
+import dairy from "/dairybread.png"
+
 
 const CategoriesWithImages = () => {
   const navigate = useNavigate();
 
-  const categories = [
-    { name: 'Atta, Rice, Oil & Dals', image: AttaDal, key: 'Atta' },
-    { name: 'Masala & Dry Fruits', image: Masala, key: 'Masala' },
-    { name: 'Cleaning Essentials', image: Cleaning, key: 'Cleaning' },
-    { name: 'Munchies', image: Munchies, key: 'Munchies' },
-    { name: 'Dairy, Bread & Eggs', image: Dairy, key: 'Dairy' },
-  ];
+  const categories = Object.keys(TOP_CATEGORIES).map(key => ({
+      key: key,
+      // Existing name from DataConfig (Can be used as fallback or tooltip)
+      name: TOP_CATEGORIES[key].name,
+      // Custom Name set karna
+      customName:
+        key === 'atta_dal_rice' ? 'Atta & Rice' :
+        key === 'oils_masala' ? 'Oil, Ghee & Masala' :
+        key === 'fastfood' ? 'Ready-to-Eat' :
+        key === 'dairy' ? 'Dairy, Bread & Eggs' :
+        key === 'Sweets' ? 'Mithai & Snacks' :
+        key === 'Detergents' ? 'Home Cleaning' : 'Other Groceries', // Default Custom Name
+      // Image key ke hisaab se set karna
+      image:
+        key === 'atta_dal_rice' ? AttaDal :
+        key === 'oils_masala' ? oilghee :
+        key === 'fastfood' ? FastFood :
+        key === 'Sweets' ? sweets :
+        key === 'dairy' ? dairy : // Default Image
+        key === 'Detergents' ? cleaning : AttaDal // Default Image
+  }));
 
-  const handleCategoryClick = (categoryKey) => {
-    // Navigate to category page with query param
-    navigate(`/category/${categoryKey}`);
+  const handleCategoryClick = (topCategoryKey) => {
+    // Top-Level key (e.g., 'atta_dal_rice') se uski default sub-category nikalna
+    const defaultSubKey = TOP_CATEGORIES[topCategoryKey].defaultSubKey;
+    if(defaultSubKey) {
+        // Ab hum us default sub-category par jayenge (e.g., /category/Atta)
+        navigate(`/category/${defaultSubKey}`);
+    }
   };
 
   return (
@@ -37,12 +63,12 @@ const CategoriesWithImages = () => {
             <div className="category-image-container">
               <img src={category.image} alt={category.name} className="category-image" />
             </div>
+           <p className="category-name-text">{category.name}</p>
           </div>
         ))}
       </div>
     </div>
   );
 };
-
 
 export default CategoriesWithImages;

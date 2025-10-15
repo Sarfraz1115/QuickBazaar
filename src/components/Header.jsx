@@ -1,13 +1,31 @@
-import React, { useState } from "react";
-import { FaUserCircle, FaShoppingCart } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { FaUserCircle, FaShoppingCart, FaSearch } from "react-icons/fa";
 import "../CSS/header.css";
 import { useCart } from "./CartContext";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "./Sidebar";
 
-const Header = ({ isHidden }) => {
+const Header = ({ isHidden, setShowSearchOverlay }) => {
   const navigate = useNavigate();
   const { cart } = useCart();
+
+  const [hide, setHide] = useState(false);
+  const [lastScroll, setLastScroll] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const curr = window.scrollY;
+      if (curr > 60 && curr > lastScroll) {
+        setHide(true); // Scroll down → hide
+      } else {
+        setHide(false); // Scroll up → show
+      }
+      setLastScroll(curr);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScroll]);
+
 
   // ✅ Cart count logic same rakha
   const cartCount = cart.reduce(
@@ -19,7 +37,7 @@ const Header = ({ isHidden }) => {
 
   return (
     <>
-      <header className={`header ${isHidden ? "hide" : ""}`}>
+      <header className={`header ${hide ? "hide" : ""}`}>
         {/* Left side → Delivery time + App name */}
         <div className="header-left">
           <h2 className="delivery-time">Delivery in 40 mins</h2>
@@ -28,14 +46,10 @@ const Header = ({ isHidden }) => {
 
         {/* Right side → Cart + Profile */}
         <div className="header-right">
-          {/* <div
-            className="cart-icon-container"
-            onClick={() => navigate("/cart")}
-          >
-            <FaShoppingCart className="cart-icon" />
-            {cartCount > 0 && <span className="notif-badge">{cartCount}</span>}
-          </div> */}
-
+          <div className="headsearch"
+            onClick={() => setShowSearchOverlay(true)}>
+            <FaSearch className="search"/>
+          </div>
           <FaUserCircle
             className="profile-icon"
             onClick={() => setSidebarOpen(true)}

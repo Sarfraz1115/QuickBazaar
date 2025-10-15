@@ -1,38 +1,79 @@
+{
+  "Atta": [
+    { "id": 2, "name": "Ashirvaad Atta 5kg", "price": 1200, "image": "/Images/ashirvad.webp", "category": "Atta", "shop": "Chidrewar mart" },
+    { "id": 20, "name": "Samrat Atta 1kg", "price": 250, "image": "/Images/samrat.webp", "category": "Atta", "shop": "Chidrewar mart" },
+    { "id": 21, "name": "Samrat Atta 5kg", "price": 1200, "image": "/Images/samrat.webp", "category": "Atta", "shop": "Chidrewar mart" }
 
+  ],
+  "Rice": [
+    { "id": 50, "name": "Chand Tara Basmati Rice 1kg", "price": 150, "image": "/Images/chandtara.jpg", "category": "Rice", "shop": "Chidrewar mart" },
+    { "id": 51, "name": "India Gate Basmati Rice 5kg", "price": 650, "image": "/Images/dawatbasmati.jpg", "category": "Rice", "shop": "Chidrewar mart" }
+  ],
+  "Dal": [
+    { "id": 4, "name": "Masoor Dal 1kg", "price": 60, "image": "/Images/masoordal.webp", "category": "Dal", "shop": "Chidrewar mart" },
+    { "id": 5, "name": "Masoor Dal 500g", "price": 30, "image": "/Images/masoordal.webp", "category": "Dal", "shop": "Chidrewar mart" },
+    { "id": 8, "name": "Masoor Dal 250g", "price": 15, "image": "/Images/masoordal.webp", "category": "Dal", "shop": "Chidrewar mart" },
+    { "id": 9, "name": "Toor Dal 1kg", "price": 50, "image": "/Images/toordal.jpg", "category": "Dal", "shop": "Chidrewar mart" },
+    { "id": 7, "name": "Toor Dal 500g", "price": 25, "image": "/Images/toordal.jpg", "category": "Dal", "shop": "Chidrewar mart" }
+  ],
+  "Salt": [
+    { "id": 3, "name": "Tata Salt 1kg", "price": 25, "image": "/Images/tatasalt.jpg", "category": "Salt", "shop": "Chidrewar mart" },
+    { "id": 22, "name": "Tata Salt 500g", "price": 15, "image": "/Images/tatasalt.jpg", "category": "Salt", "shop": "Chidrewar mart" },
+    { "id": 23, "name": "Tata Salt 250g", "price": 10, "image": "/Images/tatasalt.jpg", "category": "Salt", "shop": "Chidrewar mart" }
+  ],
+  "Oil": [
+    { "id": 30, "name": "Fortune Sunflower Oil 1L", "price": 150, "image": "/Images/fortuneoil.jpg", "category": "Oil", "shop": "Chidrewar mart" },
+    { "id": 31, "name": "Saffola Gold Oil 1L", "price": 170, "image": "/Images/saffola.jpg", "category": "Oil", "shop": "Chidrewar mart" }
+  ],
+  "Masala": [
+    { "id": 40, "name": "Everest Turmeric Powder 100g", "price": 45, "image": "/Images/turmeric.webp", "category": "Masala", "shop": "Chidrewar mart" },
+    { "id": 41, "name": "MDH Garam Masala 50g", "price": 55, "image": "/Images/mdh.jpg", "category": "Masala", "shop": "Chidrewar mart" }
+  ],
+  "Soya": [
+    { "id": 24, "name": "Fortune Soya Chunks 1kg", "price": 150, "image": "/Images/soya.jpg", "category": "Soya", "shop": "Chidrewar mart" },
+    { "id": 25, "name": "Fortune Soya Chunks 500g", "price": 80, "image": "/Images/soya.jpg", "category": "Soya", "shop": "Chidrewar mart" },
+    { "id": 26, "name": "Fortune Soya Chunks 250g", "price": 40, "image": "/Images/soya.jpg", "category": "Soya", "shop": "Chidrewar mart" }
+  ],
+  "Beverages": [
+    { "id": 60, "name": "Tata Tea Gold 250g", "price": 120, "image": "/Images/tea.webp", "category": "Beverages", "shop": "Chidrewar mart" },
+    { "id": 61, "name": "Bru Instant Coffee 100g", "price": 180, "image": "/Images/bru.webp", "category": "Beverages", "shop": "Chidrewar mart" }
+  ],
+  "Detergent": [
+    { "id": 70, "name": "Surf Excel Matic 1kg", "price": 250, "image": "/Images/surfexcel.webp", "category": "Detergent", "shop": "Chidrewar mart" },
+    {"id": 71, "name": "Ariel Matic 1kg", "price": 300, "image": "/Images/ariel.webp", "category": "Detergent", "shop": "Chidrewar mart" },
+    { "id": 72, "name": "Tide Plus 1kg", "price": 220, "image": "/Images/tide.webp", "category": "Detergent", "shop": "Chidrewar mart" },
+    {"id": 73, "name": "Nirma 1kg", "price": 180, "image": "/Images/nirma.webp", "category": "Detergent", "shop": "Chidrewar mart" },
+    { "id": 74, "name": "Rin 1kg", "price": 200, "image": "/Images/rin.webp", "category": "Detergent", "shop": "Chidrewar mart" },
+    { "id": 75, "name": "Ghadi 1kg", "price": 160, "image": "/Images/ghadi.webp", "category": "Detergent", "shop": "Chidrewar mart" },
+    { "id": 76, "name": "Henko 1kg", "price": 210, "image": "/Images/henko.webp", "category": "Detergent", "shop": "Chidrewar mart" },
+    { "id": 77, "name": "Vim Bar 250g", "price": 30, "image": "/Images/vim.webp", "category": "Detergent", "shop": "Chidrewar mart" },
+    { "id": 78, "name": "Vim Liquid 500ml", "price": 70, "image": "/Images/vimliquid.webp", "category": "Detergent", "shop": "Chidrewar mart" },
+    { "id": 79, "name": "Harpic Toilet Cleaner 500ml", "price": 90, "image": "/Images/harpic.webp", "category": "Detergent", "shop": "Chidrewar mart" },
+    {"id": 80, "name": "Lizol Disinfectant 500ml", "price": 80, "image": "/Images/lizol.webp", "category": "Detergent", "shop": "Chidrewar mart" }
+  ],
+  "Soap": [
+    { "id": 81, "name": "Lifebuoy Soap 4-pack", "price": 120, "image": "/Images/lifebuoy.webp", "category": "Soap", "shop": "Chidrewar mart" }
+  ],
 
-    
-    [
-  { "id": 2, "name": "Ashirvaad Atta 5kg", "price": 1200, "image": "/Images/ashirvad.webp", "category": "Atta" },
+  "Bread": [ 
+    {"id": 93, "name": "Britannia Bread 400g", "price": 40, "image": "/Images/britanniabread.jpg", "category": "Bread", "shop": "Chidrewar mart" }
+  ],
+  
 
-  { "id": 3, "name": "Tata Salt 1kg", "price": 25, "image": "/Images/tatasalt.jpg", "category": "Salt" },
-  { "id": 4, "name": "masoor dal 1kg", "price": 60, "image": "/Images/masoordal.webp", "category": "Dal" },
-  { "id": 5, "name": "masoor dal 500g", "price": 30, "image": "/Images/masoordal.webp", "category": "Dal" },
-  { "id": 8, "name": "masoor dal 250g", "price": 15, "image": "/Images/masoordal.webp", "category": "Dal" },
-  { "id": 9, "name": "toor dal 1kg", "price": 50, "image": "/Images/toordal.jpg", "category": "Dal" },
-  { "id": 7, "name": "toor dal 500g", "price": 25, "image": "/Images/toordal.jpg", "category": "Dal" },
-  { "id": 6, "name": "toor dal 250g", "price": 12, "image": "/Images/toordal.jpg", "category": "Dal" },
-  { "id": 10, "name": "chana dal 1kg", "price": 40, "image": "/Images/chanadal.webp", "category": "Dal" },
-  { "id": 31, "name": "chana dal 500g", "price": 20, "image": "/Images/chanadal.webp", "category": "Dal" },
-  { "id": 32, "name": "chana dal 250g", "price": 10, "image": "/Images/chanadal.webp", "category": "Dal" },
-  { "id": 11, "name": "moong dal", "price": 70, "image": "/Images/moongdal.webp", "category": "Dal" },
-  { "id": 12, "name": "urad dal", "price": 80, "image": "/Images/uraddal.jpg", "category": "Dal" },
-  { "id": 13, "name": "Chand Tara rice", "price": 90, "image": "/Images/chandtara.jpg", "category": "Rice" },
-  { "id": 14, "name": "Dawat basmati rice", "price": 120, "image": "/Images/dawatbasmati.jpg", "category": "Rice" },
-  { "id": 15, "name": "sugar", "price": 45, "image": "/Images/sugar.jpg", "category": "Sugar" },
-  { "id": 16, "name": "jaggery", "price": 55, "image": "/Images/jaggery.png", "category": "Sugar" },
-  { "id": 17, "name": "tea", "price": 150, "image": "/Images/tea.webp", "category": "Beverages" },
-  { "id": 18, "name": "Bru coffee", "price": 200, "image": "/Images/brucoffee.webp", "category": "Beverages" },
-  { "id": 19, "name": "sharda tara rice", "price": 62, "image": "/Images/dawatbasmati.jpg", "category": "Rice" },
-  {"id": 20, "name": "samrat atta 1kg", "price": 250, "image": "/Images/samrat.webp", "category": "Atta" },
-  {"id": 21, "name": "samrat atta 5kg", "price": 1200, "image": "/Images/samrat.webp", "category": "Atta" },
-  {"id": 22, "name": "tata salt 500g", "price": 15, "image": "/Images/tatasalt.jpg", "category": "Salt" },
-  {"id": 23, "name": "tata salt 250g", "price": 10, "image": "/Images/tatasalt.jpg", "category": "Salt" },
-  {"id": 24, "name": "fortune soya chunks 1kg", "price": 150, "image": "/Images/soya.jpg", "category": "Soya" },
-  {"id": 25, "name": "fortune soya chunks 500g", "price": 80, "image": "/Images/soya.jpg", "category": "Soya" },
-  {"id": 26, "name": "fortune soya chunks 250g", "price": 40, "image": "/Images/soya.jpg", "category": "Soya" },
-  {"id": 27, "name": "fortune sunflower oil 1ltr", "price": 200, "image": "/Images/sunfloweroil.jpg", "category": "Oil" },
-  {"id": 28, "name": "fortune sunflower oil 500ml", "price": 110, "image": "/Images/sunfloweroil.jpg", "category": "Oil" },
-  {"id": 29, "name": "fortune sunflower oil 250ml", "price": 60, "image": "/Images/sunfloweroil.jpg", "category": "Oil" },
-  {"id": 30, "name": "patanjali ghee 1ltr", "price": 600, "image": "/Images/patanjalighee.jpg", "category": "Ghee" }
-]
+  "Milk": [ 
+    {"id": 92, "name": "Amul Milk 1L", "price": 60, "image": "/Images/amulmilk.jpg", "category": "Milk", "shop": "Chidrewar mart" },
+    {"id": 94, "name": "Amul Yogurt 500g", "price": 70, "image": "/Images/amulyogurt.jpg", "category": "Milk", "shop": "Chidrewar mart" }
+  ],
+  
 
+  "Eggs": [ 
+    {"id": 100, "name": "Brown Eggs (6 Pcs)", "price": 50, "image": "/Images/browneggs.jpg", "category": "Eggs", "shop": "Chidrewar mart" },
+    {"id": 101, "name": "White Eggs (12 Pcs)", "price": 80, "image": "/Images/whiteeggs.jpg", "category": "Eggs", "shop": "Chidrewar mart" }
+  ],
+
+  "Cheese": [ 
+    {"id": 90, "name": "Amul Butter 500g", "price": 300, "image": "/Images/amulbutter.jpg", "category": "Cheese", "shop": "Chidrewar mart" },
+    {"id": 91, "name": "Britannia Cheese 200g", "price": 150, "image": "/Images/britanniacheese.jpg", "category": "Cheese", "shop": "Chidrewar mart" },
+    {"id": 95, "name": "Amul Cheese 500g", "price": 300, "image": "/Images/amulbutter.jpg", "category": "Cheese", "shop": "Chidrewar mart" }
+  ]
+}

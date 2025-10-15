@@ -1,4 +1,5 @@
-/* Bottom nav css */
+/* src/CSS/bottom.css - FIX: Badge Position & Clean Look */
+
 /* Bottom Navigation */
 .bottom-nav {
   position: fixed;
@@ -10,6 +11,7 @@
   background: #fff;
   border-top: 1px solid #ddd;
   padding: 8px 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05); /* Soft shadow */
   z-index: 1000;
 }
 
@@ -19,34 +21,49 @@
   background: none;
   border: none;
   outline: none;
-  font-size: 14px;
+  font-size: 12px; /* Thoda chota font */
+  color: #666; /* Default text color */
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;  /* 👈 Important */
+  position: relative; 
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: color 0.2s;
 }
 
 .nav-btn svg {
-  font-size: 1.2rem;
+  font-size: 1.3rem; /* Icon size */
   margin-bottom: 2px;
 }
 
+/* Active State */
 .nav-btn.active {
-  color: #22c55e;
+  color: #22c55e; /* Blinkit Green */
 }
 
-.cart-badge, 
-.nav-badge {
+/* Cart Badge Styling */
+.nav-cart {
+    position: relative; /* Cart button ko relative rakhein */
+}
+
+.cart-badge {
   position: absolute;
-  top: 2px;
-  right: 18px;   /* 👈 Adjust karo for perfect placement */
-  background: red;
+  top: 0;
+  /* 💡 FIX: Right position icon ke size aur padding ke hisaab se adjust ki gayi hai */
+  right: 15px; /* Icon ke right side par */
+  background: #ff4500; /* Red/Orange badge color */
   color: white;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 2px 6px;
-  border-radius: 50%;
-  line-height: 1;
+  font-size: 10px; /* Badge font size */
+  font-weight: 700;
+  min-width: 18px; /* Minimum width */
+  height: 18px; /* Height */
+  border-radius: 9px; /* Pill shape */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  line-height: 1; /* Center the number */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  z-index: 10;
 }
-
-

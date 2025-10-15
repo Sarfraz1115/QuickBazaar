@@ -9,57 +9,117 @@ body, .app-container {
   font-family: 'Inter', sans-serif;
   background: #f9f9f9;
   color: #222;
-  /* min-height: 100vh; */
 }
-
 
 .home-container{
   width: 100%;
   min-height: 100vh;
   padding-bottom: 70px;
-  /* overflow-x: hidden; */
-}
-/* ========== FEATURED PRODUCTS ========== */
-.see-all {
-  display: flex;
-  justify-content: space-between;
-  margin: 1rem 1rem 0.5rem;
-  font-weight: 600;
-  color: #222;
+  /* padding-top: 90px; */
 }
 
-.see-all-link {
-  color: #22c55e;
-  font-size: 0.85rem;
-  cursor: pointer;
+/* ========== NEW CATEGORY BLOCK STYLES ========== */
+
+.sticky-search-container {
+    position: fixed;
+  top: 0;           /* Header ki height ke niche */
+  left: 0;
+  right: 0;
+  z-index: 999;
 }
+
+.hero-container { /* Agar aapke Hero component ki class 'hero-container' hai */
+    /* SearchBar (approx 60px) + Header (approx 40px) ka space */
+    margin-top: 0; 
+}
+
+.category-product-block {
+    padding: 10px 15px; 
+    margin-bottom: 25px; 
+}
+
+.category-block-header {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    padding: 10px;
+}
+
+.category-block-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+}
+
+.see-all-btn {
+    background: none;
+    border: none;
+    color: #22c55e;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.see-all-btn:hover {
+    background: #e0f7e9;
+}
+
+
+/* ========== FEATURED PRODUCTS (Grid and Card Styles) ========== */
 
 .featured-products-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.9rem;
-  padding: 0 1rem 1rem;
+  gap: 15px 10px; 
+  padding: 0; 
 }
 
-.featured-card-outer {
+/* 💡 FIX: Card ko aur compact banana */
+.featured-product-card {
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08); 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  /* 💡 FIX: Card ki padding kam ki */
+  padding: 8px; 
+  cursor: pointer;
 }
 
-.featured-img-wrap {
+.featured-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.featured-image-container { 
   position: relative;
-}
-
-.featured-img {
   width: 100%;
-  height: 130px;
-  object-fit: cover;
+  /* Height ko fixed kar diya taki sab cards ek jaise dikhein */
+  height: 100px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px; /* Info se thoda space */
 }
 
+/* 💡 FIX: Image ki height kam ki */
+.featured-image {
+  /* Image ab container ke andar content ko dikhayegi, height fixed 100px */
+  width: auto; 
+  max-width: 90%; 
+  height: 90%;
+  object-fit: contain; /* Image ko crop hone se bachayega */
+  border-radius: 8px; 
+}
+
+/* Heart icon (Agar aap use karte hain) */
 .featured-heart {
   position: absolute;
   top: 8px;
@@ -69,45 +129,55 @@ body, .app-container {
   background: white;
   border-radius: 50%;
   padding: 5px;
+  z-index: 5;
 }
 
+/* 💡 FIX: Info padding kam ki */
 .featured-info {
-  padding: 0.6rem;
+  padding: 5px 0 5px 0; 
 }
 
 .featured-title {
-  font-size: 0.9rem;
+  font-size: 0.85rem; /* Size halka sa kam kiya */
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
+  /* Multi-line support agar chahiye to remove kar sakte hain, abhi single line hai */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  height: 1.2rem; /* Ek line ke liye height fix */
 }
 
 .featured-price {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #22c55e;
   font-weight: 600;
 }
 
+/* 💡 FIX: Add Button ko aur compact kiya */
 .add-button {
-  border: none;
-  background: #22c55e;
-  color: white;
-  padding: 0.5rem;
-  font-size: 0.85rem;
+  border: 1px solid #22c55e; /* Border added for a cleaner look */
+  background: #fff; /* Background white kiya */
+  color: #22c55e; /* Text color green kiya */
+  padding: 6px 10px; /* Padding kam kiya */
+  font-size: 0.8rem; /* Font size kam kiya */
+  font-weight: 600;
   cursor: pointer;
-  border-top: 1px solid #eee;
-  transition: background 0.2s;
+  border-radius: 8px; 
+  margin-top: 8px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 .add-button:hover {
-  background: #1da34d;
+  background: #22c55e; /* Hover par green background */
+  color: white; /* Hover par white text */
 }
 
-
-
-
-
-
-
-
-
-
+/* Search Results Grid (Uses same styling) */
+.search-results-grid {
+    padding: 15px;
+}

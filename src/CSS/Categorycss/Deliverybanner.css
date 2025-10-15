@@ -1,0 +1,27 @@
+
+.delivery-banner-wrapper {
+    position: fixed;
+    bottom: 60px; 
+    left: 0;
+    right: 0;
+    z-index: 99; 
+    padding: 0 10px;/
+}
+
+/* Actual Banner style */
+.delivery-banner {
+    width: 100%;
+    max-width: 600px; 
+    margin: 0 auto;
+    border-radius: 8px;
+    padding: 10px 15px;
+    color: white;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.banner-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0;
+}

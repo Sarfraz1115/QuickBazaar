@@ -1,8 +1,10 @@
-// src/components/SearchOverlay.jsx
+// src/components/SearchOverlay.jsx (Pura aur Final Code)
+
 import React, { useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import "../CSS/overlay.css";
-import AddToCartToast from "./AddToCartToast"; // ✅ import
+// ✅ Home.jsx se aane waale toast logic ke liye AddToCartToast ka import zaroori hai
+import AddToCartToast from "./AddToCartToast"; 
 
 const SearchOverlay = ({
   search,
@@ -10,12 +12,16 @@ const SearchOverlay = ({
   filteredProducts,
   setShowSearchOverlay,
   navigate,
-  addToCart,
+  addToCart, // Home.jsx se aane waala addToCart function
 }) => {
+  // Search Overlay ke andar toast dikhane ke liye local state
   const [toast, setToast] = useState({ show: false, name: "" });
 
+  // Home.jsx ke addToCart function ko call karta hai aur local toast state set karta hai
   const handleAddToCart = (product) => {
-    addToCart(product);
+    // Ye function Home.jsx ke global addToCart ko call karega
+    addToCart(product); 
+    // Aur iske apne local toast ko dikhayega
     setToast({ show: true, name: product.name });
   };
 
@@ -24,12 +30,15 @@ const SearchOverlay = ({
       <div className="overlay-header">
         <FaArrowLeft
           className="overlay-back"
-          onClick={() => setShowSearchOverlay(false)}
+          onClick={() => {
+             setShowSearchOverlay(false);
+             setSearch(""); // Overlay band karte waqt search input bhi clear ho jayega
+          }}
         />
         <input
           type="text"
           autoFocus
-          placeholder="Search..."
+          placeholder="Search for products, brands..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="overlay-search-input"
@@ -37,14 +46,21 @@ const SearchOverlay = ({
       </div>
 
       <div className="overlay-results">
-        {filteredProducts.length > 0 ? (
+        {/* Agar search empty hai, to kuch message dikhao */}
+        {search === "" && (
+             <p className="overlay-empty">Type something to search...</p>
+        )}
+
+        {/* Agar search mein results mile hain */}
+        {search !== "" && filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
             <div
-              key={product.id}
+              // ✅ FIX: product.id ab unique hai, isse key error solve ho jayega
+              key={product.id} 
               className="overlay-result-card"
               onClick={() => {
-                setShowSearchOverlay(false);
-                navigate(`/item/${product.id}`);
+                setShowSearchOverlay(false); // Item page par jane se pehle overlay band ho
+                navigate(`/item/${product.id}`); // Unique ID ke saath navigate karo
               }}
             >
               <img
@@ -59,20 +75,23 @@ const SearchOverlay = ({
               <button
                 className="overlay-add-btn"
                 onClick={(e) => {
-                  e.stopPropagation();
-                  handleAddToCart(product); // ✅ toast + cart
+                  e.stopPropagation(); // Card click event ko roko
+                  handleAddToCart(product); // Add to Cart functionality
                 }}
               >
                 + Add
               </button>
             </div>
           ))
-        ) : (
-          <p className="overlay-empty">No results found</p>
+        ) : 
+        
+        // Agar search mein koi results nahi mile
+        (search !== "" && filteredProducts.length === 0) && (
+          <p className="overlay-empty">No results found for "{search}"</p>
         )}
       </div>
 
-      {/* ✅ Toast Component */}
+      {/* ✅ AddToCart Toast Component */}
       <AddToCartToast
         show={toast.show}
         itemName={toast.name}

@@ -1,0 +1,112 @@
+/* src/CSS/shoppage.css */
+
+.shop-page-container {
+    padding: 15px;
+    background: #f8f8f8;
+    min-height: 100vh;
+}
+
+.shop-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    margin-right: 10px;
+    cursor: pointer;
+    color: #333;
+}
+
+.shop-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #222;
+}
+
+/* ✅ Products Grid: FIX for 2 products per row */
+.shop-products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    gap: 15px;
+    padding-bottom: 20px;
+}
+
+/* Product Card Styling */
+.shop-product-card {
+    border: 1px solid #eee;
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-image {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.product-name {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #333;
+    /* Two-line ellipsis for better alignment */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    min-height: 2.2em;
+}
+
+.product-price {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #000;
+}
+
+.add-to-cart-btn {
+    padding: 8px 12px;
+    background: #22c55e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: background 0.2s;
+}
+
+.add-to-cart-btn:active {
+    background: #15803d;
+}
+
+/* Messages and Loading */
+.loading-message, .not-found-message, .load-more-message, .end-of-results {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.load-more-message {
+    color: #22c55e;
+    font-weight: 500;
+}

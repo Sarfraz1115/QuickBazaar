@@ -1,189 +1,245 @@
-/* Container aur General Layout */
-body {
-  background-color: #f7f7f7;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+/* src/CSS/itemPage.css - Blinkit Style Redesign */
+
+/* General Container and Layout */
+.item-page-container {
+    padding: 0;
+    /* Fixed button ke liye space */
+    padding-bottom: 90px; 
+    background: #f9f9f9; /* Light grey background for the page */
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-.item-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  max-width: 480px;
-  margin: 0 auto;
-  background-color: white;
-  overflow-y: auto;
-  padding-bottom: 80px; /* fixed button ke liye jagah */
-}
-
-/* Header aur Icons */
+/* --- Header & Back Button (Image ke Upar) --- */
 .item-header {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  right: 16px;
-  display: flex;
-  justify-content: space-between;
-  z-index: 10;
+    display: flex;
+    align-items: center;
+    position: fixed; /* Fixed position */
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    z-index: 100; /* Sabse upar */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0)); /* Thoda blur effect */
 }
 
-.back-button, .share-button {
-  background: rgba(255, 255, 255, 0.7);
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 1.25rem;
-  color: #333;
+.back-button {
+    background: rgba(0, 0, 0, 0.1); /* Slightly transparent dark background */
+    border: none;
+    border-radius: 50%;
+    width: 36px; /* Thoda chota */
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #000;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    transition: background 0.2s;
+}
+.back-button:active {
+    background: rgba(0, 0, 0, 0.2);
 }
 
-/* Main Image Section */
-.item-image-section {
-  width: 100%;
-  padding-top: 100%;
-  position: relative;
-  overflow: hidden;
-  background-color: #f0f0f0;
+.item-shop-name {
+    margin-left: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
+}
+
+/* --- Product Image Section --- */
+.item-image-container {
+    width: 100%;
+    height: 300px; /* Fixed height for a prominent image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff; /* Image background white rakhein */
+    padding: 20px;
+    border-bottom: 1px solid #eee;
 }
 
 .item-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    max-width: 90%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
-/* Item Details aur Content */
-.item-details {
-  padding: 1.5rem;
-  flex-grow: 1;
-  background-color: white;
-  position: relative;
-  z-index: 5;
-}
-
-.title-and-price {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
+/* --- Product Details Section --- */
+.item-details-section {
+    padding: 20px 15px;
+    background: #fff;
+    border-radius: 16px 16px 0 0;
+    margin-top: -20px; /* Image ke upar overlap karne ke liye */
+    position: relative;
+    z-index: 50;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05); /* Shadow for elevated look */
 }
 
 .item-name {
-  font-size: 1.75rem;
-  font-weight: bold;
-  margin: 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #222;
+    margin-bottom: 8px;
+    line-height: 1.2;
 }
 
-/* .item-price {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #2ecc40;
-  margin: 0;
-} */
+.item-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.item-category {
+    font-size: 0.9rem;
+    color: #22c55e; /* Green color */
+    font-weight: 600;
+    margin-bottom: 15px;
+    border: 1px solid #22c55e;
+    padding: 4px 8px;
+    display: inline-block;
+    border-radius: 4px;
+}
 
 .item-description {
-  color: #555;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin: 0 0 1.5rem 0;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.4;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
 }
 
-/* Quantity Section */
-.quantity-controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 1.5rem;
+/* --- Quantity Selector --- */
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0 auto 30px 0; /* Left align */
 }
 
 .qty-btn {
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: #555;
-  font-size: 1.2rem;
+    background: #fff;
+    border: none;
+    color: #22c55e;
+    font-size: 1.2rem;
+    font-weight: 600;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.qty-btn:active {
+    background: #f0f0f0;
 }
 
 .qty-display {
-  font-size: 1.2rem;
-  font-weight: bold;
-  min-width: 30px;
-  text-align: center;
+    width: 50px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #222;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    height: 40px;
+    line-height: 40px;
 }
 
-/* Related Products Section */
+
+/* --- Fixed Add to Cart Button --- */
+.add-to-cart-button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #22c55e; /* Blinkit Green */
+    color: #fff;
+    border: none;
+    padding: 15px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 90;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s;
+}
+
+.add-to-cart-button:active {
+    background: #1eaf53;
+}
+
+
+/* --- Related Products Section --- */
 .related-products-section {
-  margin-top: 1.5rem;
+    padding: 20px 0;
+    margin-top: 20px;
+    border-top: 8px solid #f0f0f0; /* Separator line */
+    background: #fff;
 }
 
-.related-products-section h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+.related-products-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #222;
+    padding: 0 15px;
 }
 
 .related-products-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto; /* Horizontal Scroll */
+    padding: 0 15px 15px;
+    scrollbar-width: none;
+}
+.related-products-grid::-webkit-scrollbar {
+    display: none;
 }
 
+
 .related-product-card {
-  background-color: #f7f7f7;
-  border-radius: 10px;
-  overflow: hidden;
-  text-align: left;
+    min-width: 120px; /* Fixed card width */
+    flex-shrink: 0;
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
 }
 
 .related-product-image {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-  border-bottom: 1px solid #ccc;
+    width: 100%;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 8px;
 }
 
 .related-product-name {
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin: 0.5rem 0.5rem 0.2rem;
+    font-size: 0.75rem;
+    margin: 0;
+    color: #333;
+    /* Two-line ellipsis ke liye */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 25px;
 }
 
 .related-product-price {
-  font-size: 0.8rem;
-  color: #777;
-  margin: 0 0.5rem 0.5rem;
-}
-
-/* Add to Cart Button (fixed bottom) */
-.add-to-cart-button {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 480px;
-  background: #2ecc40;
-  color: #fff;
-  border: none;
-  padding: 1rem 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 0;
-  z-index: 100;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #000;
+    margin-top: 5px;
 }
