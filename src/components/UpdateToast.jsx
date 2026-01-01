@@ -4,25 +4,27 @@ import "../CSS/updateToast.css";
 const isDev = import.meta.env.DEV;
 
 function UpdateToast() {
-  const { needRefresh, updateServiceWorker } = useRegisterSW({
-    onRegistered(r) {
-      console.log("Service Worker registered:", r);
-    },
-    onRegisterError(error) {
-      console.error("SW registration error", error);
-    },
-  });
+    const { needRefresh, updateServiceWorker } = useRegisterSW();
 
-  if (isDev || !needRefresh) return null;
+    if (isDev || !needRefresh) return null;
 
-  return (
-    <div className="update-toast">
-      <p>⚡ New update available!</p>
-      <button onClick={() => updateServiceWorker(true)}>
-        Update Now
-      </button>
-    </div>
-  );
+    const handleUpdate = async () => {
+        if (sessionStorage.getItem("updated")) return;
+
+        sessionStorage.setItem("updated", "true");
+        await updateServiceWorker(true);
+        window.location.reload();
+    };
+
+
+    return (
+        <div className="update-toast">
+            <p>⚡ New update available!</p>
+            <button onClick={handleUpdate}>
+                Update Now
+            </button>
+        </div>
+    );
 }
 
 export default UpdateToast;
