@@ -40,7 +40,7 @@ const Header = ({ isHidden, setShowSearchOverlay }) => {
       <header className={`header ${hide ? "hide" : ""}`}>
         {/* Left side → Delivery time + App name */}
         <div className="header-left">
-          <h2 className="delivery-time">Delivery in 40 mins</h2>
+          <h2 className="delivery-time">Delivery in 60 mins</h2>
           <p className="app-name">QuickKirana</p>
         </div>
 

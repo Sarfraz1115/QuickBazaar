@@ -4,27 +4,31 @@ import "../CSS/updateToast.css";
 const isDev = import.meta.env.DEV;
 
 function UpdateToast() {
-    const { needRefresh, updateServiceWorker } = useRegisterSW();
+  const { needRefresh, updateServiceWorker } = useRegisterSW();
 
-    if (isDev || !needRefresh) return null;
+  // 🔥 agar already update apply ho chuka hai
+  const alreadyUpdated = localStorage.getItem("pwa-updated");
 
-    const handleUpdate = async () => {
-        if (sessionStorage.getItem("updated")) return;
+  if (isDev || !needRefresh || alreadyUpdated) return null;
 
-        sessionStorage.setItem("updated", "true");
-        await updateServiceWorker(true);
-        window.location.reload();
-    };
+  const handleUpdate = async () => {
+    // 🔥 mark update as done
+    localStorage.setItem("pwa-updated", "true");
 
+    await updateServiceWorker(true);
 
-    return (
-        <div className="update-toast">
-            <p>⚡ New update available!</p>
-            <button onClick={handleUpdate}>
-                Update Now
-            </button>
-        </div>
-    );
+    // 🔥 hard reload (mandatory)
+    window.location.reload();
+  };
+
+  return (
+    <div className="update-toast">
+      <p>⚡ New update available!</p>
+      <button onClick={handleUpdate}>
+        Update Now
+      </button>
+    </div>
+  );
 }
 
 export default UpdateToast;
