@@ -26,7 +26,7 @@ function App() {
     // <CartProvider> 
     <BrowserRouter>
     <InstallPrompt/>
-    {/* <UpdateToast/> */}
+    <UpdateToast/>
       <Routes>
         {/* Main Routes */}
         <Route path="/" element={<Home />} />
