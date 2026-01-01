@@ -1,21 +1,17 @@
-/* src/CSS/categories.css - FIX: Ensure 4 columns fit properly and prevent overflow */
 
-/* --- Main Container and Header --- */
 .categories-container {
     padding: 0; 
     margin: 0 auto;
-    /* max-width is handled by the main app/home container, we just ensure no horizontal overflow */
     background-color: #f7f7f7; 
 }
 
-/* Header (Keep it simple and aligned with the app) */
+
 .category-header h3 {
     text-align: left; 
     font-size: 1.25em; 
     font-weight: 700;
     color: #1a1a1a;
     margin-bottom: 10px;
-    /* Padding same as the featured product block in Homee.css */
     padding: 15px 15px 5px 15px; 
 }
 
@@ -24,7 +20,6 @@
 }
 
 
-/* --- Categories List (Grid Layout) --- */
 .categories-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
@@ -33,14 +28,13 @@
     overflow-x: hidden; 
 }
 
-/* --- Individual Category Item --- */
 .category-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
     background-color: #fff;
-    padding: 8px 4px; /* Padding aur kam kiya taki chote screens par jagah mile */
+    padding: 8px 4px; 
     border-radius: 10px; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); 
     transition: box-shadow 0.2s;
@@ -53,9 +47,8 @@
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); 
 }
 
-/* --- Image Styling (Adjusted size for better fit) --- */
+
 .category-image-container {
-    /* Size 80px kar diya, yeh 4 columns mein fit hone ke liye safe hai */
     width: 80px; 
     height: 80px;
     margin-bottom: 5px;
@@ -73,15 +66,15 @@
 /* --- Name Styling --- */
 .category-name-text {
     margin-top: 5px;
-    font-size: 0.75rem; /* Font size aur chota kiya */
+    font-size: 0.75rem; 
     font-weight: 500; 
     color: #444;
     line-height: 1.2; 
-    white-space: normal; /* Allow text to wrap to 2 lines */
+    white-space: normal; 
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    height: 2.4em; /* Approx height for 2 lines */
+    height: 2.4em; 
     padding: 0 2px; 
 }
 
@@ -90,12 +83,11 @@
 }
 
 
-/* --- Mobile Responsiveness (For even smaller screens, keep 4 columns but with minimal padding) --- */
+
 @media (max-width: 450px) {
     .categories-list {
         grid-template-columns: repeat(4, 1fr);
         gap: 8px;
-        /* Minimum side padding for very small screens */
         padding: 5px 8px; 
     }
     

@@ -4,12 +4,12 @@
   min-height: 100vh;
   background: #f9f9f9;
   height: 100vh;
-  overflow: hidden; /* Prevent double scrollbars on the main page */
+  overflow: hidden; 
 }
 
-/* --- Left Sidebar (Category Navigation) --- */
+
 .category-sidebar {
-  width: 90px; /* Fixed width for the sidebar */
+  width: 90px;
   background: #fff;
   border-right: 1px solid #eee;
   padding: 12px 0;
@@ -31,11 +31,10 @@
   padding: 8px 0;
   border-radius: 10px;
   transition: background 0.2s;
-  width: 80%; /* For hover/active background to cover the item */
+  width: 80%; 
 }
 
 .sidebar-category-item.active {
-  /* Highlight style for the currently selected category */
   background: #f9fff9; /* Light green background */
   border: 1px solid #22c55e; /* Green border for active status */
 }
@@ -45,8 +44,8 @@
 }
 
 .sidebar-category-img {
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 4px;

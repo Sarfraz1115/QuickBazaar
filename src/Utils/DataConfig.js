@@ -12,6 +12,7 @@ export const TOP_CATEGORIES = {
             { key: "Rice", name: "Rice & Grains", image: "/Images/chandtara.jpg" },
             { key: "Dal", name: "Dals & Pulses", image: "/Images/masoordal.webp" },
             { key: "Salt", name: "Salt & Sugar", image: "/Images/tatasalt.jpg" },
+            { key: "besan", name: "Besan & Maida", image: "/Images/tatasalt.jpg" },
         ]
     },
     // Top-Level Category 2: Oils, Masala Group
@@ -22,14 +23,51 @@ export const TOP_CATEGORIES = {
         subCategories: [
             // Jo sub-categories is TOP-LEVEL category se related honi chahiye
             { key: "Oil", name: "Oils & Ghee", image: "/Images/fortuneoil.jpg" },
-            { key: "Masala", name: "Spices & Masala", image: "/Images/turmeric.webp" },
-            { key: "Soya", name: "Soya Products", image: "/Images/soya.jpg" },
-            { key: "Beverages", name: "Tea & Coffee", image: "/Images/tea.webp" },
+            { key: "Masala", name: "Powder Masala", image: "/Images/tikhalal.jpg" },
+            { key: "Motamasala", name: "Whole masala", image: "/Images/elaichi.jpeg" },
         ]
     },
     // Top-Level Category 3: Fast Food
     'fastfood': {
-        name: 'Fast Food Delights',
+        name: 'Chips & Namkeen',
+        dataFile: '/data/Kiranaproducts.json',
+        defaultSubKey: 'Chips',
+        subCategories: [
+            { key: "Chips", name: "Chips", image: "/Images/laysblue.webp" },
+            { key: "Mixturechips", name: "Bhujia & Mixtures", image: "/Images/haldirammixture.webp" },
+            { key: "popcornpapad", name: "PopCorn & Pappad", image: "/Images/actpopcorn.jpg" },
+        ]
+    },
+
+
+
+    'sauces': {
+        name: 'Sauces & Spreads',
+        dataFile: '/data/Kiranaproducts.json',
+        defaultSubKey: 'sauces',
+        subCategories: [
+            { key: "sauces", name: "Sauces & Spreads", image: "/Images/kissansaucee.webp" },
+            { key: "spreads", name: "Peanut Butter & jams", image: "/Images/mayonesebottle.jpg" },
+            { key: "chutney", name: "Pickels & Chutney", image: "/Images/pickellime.webp" },
+        ]
+    },
+
+
+    'patti': {
+        name: 'Chai Patti & Fastfoods',
+        dataFile: '/data/Kiranaproducts.json',
+        defaultSubKey: 'tea', 
+        subCategories: [
+            { key: "tea", name: "tea", image: "/Images/alooburger.jpg" },
+            { key: "Cofees", name: "Coffee", image: "/Images/vegpizza.jpg" },
+            { key: "greentea", name: "Greentea", image: "/Images/panipuri.jpg" },
+
+        ]
+    },
+
+
+    'choclate': {
+        name: 'Choclates & Biscuits',
         dataFile: '/data/Fastfood.json',
         defaultSubKey: 'Burger',
         subCategories: [
@@ -40,6 +78,8 @@ export const TOP_CATEGORIES = {
             { key: "Fries", name: "Fries & Sides", image: "/Images/frenchfries.jpg" },
         ]
     },
+
+
     'Detergents': {
         name: 'Household Cleaning',
         dataFile: '/data/Kiranaproducts.json',
@@ -50,6 +90,10 @@ export const TOP_CATEGORIES = {
 
         ]
     },
+
+
+
+
     'Sweets': {
         name: 'Sweet Treats',
         dataFile: '/data/Kiranaproducts.json',
@@ -73,8 +117,21 @@ export const TOP_CATEGORIES = {
             { key: "Eggs", name: "Eggs", image: "/Images/eggs.webp" }, // 'Eggs' key Kiranaproducts.json mein nahi hai
             { key: "Cheese", name: "Butter & Cheese", image: "/Images/butter.webp" }, // 'Cheese' key Kiranaproducts.json mein 'cheese' se match hogi
         ]
+    },
+
+
+    'drinks': {
+        name: 'Cold Drinks & Juices',
+        dataFile: '/data/Kiranaproducts.json',
+        defaultSubKey: 'Bread',
+        subCategories: [
+            { key: "Bread", name: "Bread & Buns", image: "/Images/bread.webp" },
+            { key: "Milk", name: "Milk & Curd", image: "/Images/amulmilk.jpg" }, // 'Milk' key Kiranaproducts.json mein nahi hai, lekin abhi 'Bread' se products dikhenge
+            { key: "Eggs", name: "Eggs", image: "/Images/eggs.webp" }, // 'Eggs' key Kiranaproducts.json mein nahi hai
+            { key: "Cheese", name: "Butter & Cheese", image: "/Images/butter.webp" }, // 'Cheese' key Kiranaproducts.json mein 'cheese' se match hogi
+        ]
     }
-    // Aap yahan "Detergent", "Soap" jaisi alag groups bhi bana sakte hain.
+
 };
 
 

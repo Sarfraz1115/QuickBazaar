@@ -6,12 +6,16 @@ import "../CSS/categories.css";
 import { TOP_CATEGORIES } from "../Utils/DataConfig"; 
 // Dummy images (aapko apne paths set karne honge)
 import AttaDal from "/attadal.png"; 
-import Masala from "/masala.png";
 import FastFood from "/munchies.png";
 import cleaning from "/cleaning.png";
 import sweets from "/sweets.jpg";
-import oilghee from "/oilghee.png"
+import oilghee from "/oilghee.png";
 import dairy from "/dairybread.png"
+import drinks from "/drinks.png"
+import sauces from "/sauces.png"
+import patti from "/chaipatti.png"
+import choclate from "/choco.png"
+
 
 
 const CategoriesWithImages = () => {
@@ -27,6 +31,10 @@ const CategoriesWithImages = () => {
         key === 'oils_masala' ? 'Oil, Ghee & Masala' :
         key === 'fastfood' ? 'Ready-to-Eat' :
         key === 'dairy' ? 'Dairy, Bread & Eggs' :
+        key === 'drinks' ? 'Juices & Drinks' :
+        key === 'sauces' ? 'Sauces & Spreads' :
+        key === 'choclate' ? 'Choclates & Biscuits' :
+        key === 'patti' ? 'Chai Patti & Fastfoods' :
         key === 'Sweets' ? 'Mithai & Snacks' :
         key === 'Detergents' ? 'Home Cleaning' : 'Other Groceries', // Default Custom Name
       // Image key ke hisaab se set karna
@@ -35,6 +43,10 @@ const CategoriesWithImages = () => {
         key === 'oils_masala' ? oilghee :
         key === 'fastfood' ? FastFood :
         key === 'Sweets' ? sweets :
+        key === 'sauces' ? sauces :
+        key === 'patti' ? patti :
+        key === 'choclate' ? choclate :
+        key === 'drinks' ? drinks :
         key === 'dairy' ? dairy : // Default Image
         key === 'Detergents' ? cleaning : AttaDal // Default Image
   }));

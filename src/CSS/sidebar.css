@@ -33,7 +33,7 @@
 
 .close-btn {
   position: absolute;
-  top: 12px;
+  top: 62px;
   right: 12px;
   font-size: 1.5rem;
   border: none;
@@ -45,8 +45,8 @@
 .user-profile {
   display: flex;
   align-items: center;
-  margin-bottom: 25px;
-  margin-top: 20px;
+  /* margin-bottom: 25px; */
+  margin-top: 55px;
 }
 .user-avatar {
   width: 50px;
@@ -70,11 +70,13 @@
 .view-profile {
   font-size: 0.8rem;
   color: #666;
+
 }
 
 /* ===== Menu Section ===== */
 .menu-section {
   flex: 1;
+  margin-top: 15px;
 }
 .menu-heading {
   font-size: 0.85rem;

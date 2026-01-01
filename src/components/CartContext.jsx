@@ -1,5 +1,3 @@
-// src/components/CartContext.jsx - FIX: Quantity Handling & LocalStorage
-
 import React, { createContext, useContext, useState, useEffect } from "react"; 
 
 const CartContext = createContext();
